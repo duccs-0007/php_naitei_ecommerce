@@ -36,5 +36,6 @@ mix.scripts([
     'public/js/owl.carousel.min.js',
     'public/js/gmaps.min.js',
     'public/js/jquery.sticky.js',
-    'public/js/main.js'
+    'public/js/main.js',
+    'public/js/selfjs/users.js'
 ], 'public/js/app.min.js');

@@ -4,15 +4,11 @@
 /public/css
 /public/fonts
 /public/img
-/public/js
+/public/js/*
+!/public/js/selfjs
 /public/scss
 /storage/*.key
 /vendor
-/public/css
-/public/js
-/public/fonts
-/public/scss
-/public/img
 .env
 .phpunit.result.cache
 Homestead.json

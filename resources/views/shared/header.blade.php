@@ -5,8 +5,9 @@
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <a class="navbar-brand logo_h" href="{{ url('/') }}"><img src="img/logo.png" alt=""></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -16,33 +17,27 @@
                     <ul class="nav navbar-nav menu_nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="/">@lang('header.home')</a></li>
                         <li class="nav-item"><a class="nav-link" href="#">@lang('header.shop')</a></li>
+                        @guest
+                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">@lang('header.login')</a>
+                        </li>
+                        @else
                         <li class="nav-item submenu dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                                aria-expanded="false">@lang('header.pages')</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
+                                aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu">
-                                @guest
-                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">@lang('header.login')</a></li>
-                                @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                                @endif
-                                @else
-                                <li class="nav-item"><a class="nav-link" href="#">{{ Auth::user()->name }} <span class="caret"></span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">@lang('user.profile')<span
+                                            class="caret"></span></a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">@lang('header.tracking')</a></li>
-                                <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}</a>
+                                <li class="nav-item"><a class="nav-link" href="#"  id="logout_btn_submit">
+                                        {{ __('Logout') }}</a>
                                 </li>
-                                {{!! Form::open([ 
-                                    'method' => 'POST',
-                                    'routes' => 'logout',
-                                    'id' => 'logout-form',
-                                    'style' => 'display: none;' ]) !!}}
-                                {{!! Form::close() !!}}
-                                @endguest
+                                {!! Form::open(['method' => 'POST', 'route' => 'logout', 'id' => 'logout_form', 'class'
+                                => 'd-none']) !!}
+                                {!! Form::close() !!}
+
                             </ul>
                         </li>
+                        @endguest
                         <li class="nav-item"><a class="nav-link" href="/contact">@lang('header.contact')</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
