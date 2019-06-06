@@ -6,11 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Suggestion extends Model
 {
-    protected $fillable = [
-        'title',
-        'slug',
-        'body',
-        'user_id'
+    protected $guard = [
+        'id'
     ];
 
     public function owner()
