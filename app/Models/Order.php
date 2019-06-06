@@ -6,11 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = [
-        'address',
-        'order_total',
-        'status',
-        'note'
+    protected $guard = [
+        'id'
     ];
 
     public function owner()
