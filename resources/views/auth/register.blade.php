@@ -1,88 +1,85 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">@lang('auth.register')</div>
+    <!-- Start Banner Area -->
+    <section class="banner-area organic-breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+                <div class="col-first">
+                    <h1>@lang('auth.register')</h1>
+                    <nav class="d-flex align-items-center">
+                        <a href="index.html">@lang('header.home')<span class="lnr lnr-arrow-right"></span></a>
+                        <a href="category.html">@lang('auth.register')</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Banner Area -->
 
-                <div class="card-body">
-                    {!! Form::open(['method' => 'post', 'routes' => 'register']) !!}
-                        @include('common.errors')
-
-                        <div class="form-group row">
-                            {!! Form::label('name', trans('auth.name'),[
-                                'class'=> 'col-md-4 col-form-label text-md-right'
-                                ]) !!}
-
-                            <div class="col-md-6">
-                                {!! Form::text('name', old('name'), [
-                                    'class' => 'form-control',
-                                    'id'    => 'name',
-                                    'required' => 'required',
-                                    'autocomplete' => 'name',
-                                    'autofocus' => 'autofocus'
-                                    ]) !!}
-                            </div>
+    <section class="login_box_area section_gap">
+        <div class="container">
+            <div class="col-lg-18">
+                <div class="login_form_inner">
+                    <h3>@lang('content.register_now')</h3>
+                    {!! Form::open(['method' => 'POST', 'route' => 'register', 'class' => 'row login_form']) !!}
+                        
+                        <div class="col-md-12 form-group">
+                            @include('common.errors')
                         </div>
 
-                        <div class="form-group row">
-                            {!! Form::label('email', trans('auth.email'), [
-                                'class' => 'col-md-4 col-form-label text-md-right'
-                                ]) !!}
-
-                            <div class="col-md-6">
-                                {!! Form::email('email', old('email'), [
-                                    'id' => 'email',
-                                    'class' => 'form-control',
-                                    'required' => 'required',
-                                    'autocomplete' => 'email'
-                                    ]) !!}
-                            </div>
+                        <div class="col-md-12 form-group">
+                            {!! Form::text('name', old('name'), [
+                                'id' => 'name', 
+                                'placeholder' => trans('auth.name'), 
+                                'class' => 'form-control', 
+                                'required' => 'required', 
+                                'autocomplete' => 'name', 
+                                'autofocus' => 'autofocus'
+                            ]) !!}
                         </div>
 
-                        <div class="form-group row">
-                            {!! Form::label('password', trans('auth.password'), [
-                                'class' => 'col-md-4 col-form-label text-md-right'
-                                ]) !!}
-
-                            <div class="col-md-6">
-                                {!! Form::password('password', [
-                                    'class' => 'form-control',
-                                    'id'    => 'password',
-                                    'required' => 'required',
-                                    'autocomplete' => 'new-password'
-                                    ]) !!}
-                            </div>
+                        <div class="col-md-12 form-group">
+                            {!! Form::email('email', old('email'), [
+                                'id' => 'email', 
+                                'placeholder' => trans('auth.email'), 
+                                'required' => 'required', 
+                                'autocomplete' => 'email', 
+                                'class' => 'form-control'
+                            ]) !!}
                         </div>
 
-                        <div class="form-group row">
-                            {!! Form::label('password-confirm', trans('auth.confirm_pass'), [
-                                'class' => 'col-md-4 col-form-label text-md-right'
-                                ]) !!}
-
-                            <div class="col-md-6">
-                                {!! Form::password('password_condfirmation', [
-                                    'id' => 'password-confirm',
-                                    'class' => 'form-control', 
-                                    'required' => 'required',
-                                    'autocomplete' => 'new-password'
-                                    ]) !!}
-                            </div>
+                        <div class="col-md-12 form-group">
+                            {!! Form::password('password', [
+                                'id' => 'password', 
+                                'placeholder' => trans('auth.password'), 
+                                'required' => 'required', 
+                                'autocomplete' => 'current-password', 
+                                'class' => 'form-control'
+                            ]) !!}
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                {!! Form::submit(trans('auth.register'), [
-                                    'class' => 'btn btn-primary'
-                                ]) !!}
-                            </div>
+                        <div class="col-md-12 form-group">
+                            {!! Form::password('password_confirmation', [
+                                'id' => 'password-confirm', 
+                                'placeholder' => trans('auth.confirm_pass'), 
+                                'class' => 'form-control', 
+                                'required' => 'required', 
+                                'autocomplete' => 'new-password'
+                            ]) !!}
                         </div>
+
+                        <div class="col-md-12 form-group"></div>
+                        
+                        <div class="col-md-12 form-group">
+                            {!! Form::submit(trans('auth.register'), ['class' => 'primary-btn']) !!}
+                        </div>
+
+                        <div class="col-md-12 form-group"></div>
+
                     {!! Form::close() !!}
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 @endsection

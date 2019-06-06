@@ -23,13 +23,14 @@ return [
     'app_title' =>  'Dashboard',
     'login' => 'Login',
     'name'  => 'Name',
-    'confirm_pass' => 'Confirm Password',
+    'confirm_pass' => 'Confirmation',
     'send_pass_rs_link' => 'Send password reset link',
     'send_verify'   => 'A fresh verification link has been sent to your email address.',
     'check_verify_email' => 'Before proceeding, please check your email for a verification link.',
     'notreceive_vetify' => 'If you did not receive the email',
     'another_vetify'    => 'click here to request another',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
-    'logged_in' =>  'You are logged in!'
+    'logged_in' =>  'You are logged in!',
+    'forgot_password' => 'Forgot Your Password?'
 
 ];
