@@ -4,7 +4,7 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <a class="navbar-brand logo_h" href="/"><img src="img/logo.png" alt=""></a>
+                <a class="navbar-brand logo_h" href="{{ url('/') }}"><img src="img/logo.png" alt=""></a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="icon-bar"></span>
@@ -20,8 +20,27 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                                 aria-expanded="false">@lang('header.pages')</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="/login">@lang('header.login')</a></li>
+                                @guest
+                                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">@lang('header.login')</a></li>
+                                @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                                @endif
+                                @else
+                                <li class="nav-item"><a class="nav-link" href="#">{{ Auth::user()->name }} <span class="caret"></span></a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">@lang('header.tracking')</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}</a>
+                                </li>
+                                {{!! Form::open([ 
+                                    'method' => 'POST',
+                                    'routes' => 'logout',
+                                    'id' => 'logout-form',
+                                    'style' => 'display: none;' ]) !!}}
+                                {{!! Form::close() !!}}
+                                @endguest
                             </ul>
                         </li>
                         <li class="nav-item"><a class="nav-link" href="/contact">@lang('header.contact')</a></li>
@@ -46,4 +65,3 @@
         </div>
     </div>
 </header>
-<!-- End Header Area -->
