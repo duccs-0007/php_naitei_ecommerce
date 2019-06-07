@@ -18,4 +18,5 @@
         'quantity' => 'Quantity',
         'edit' => ' Edit',
         'delete' => ' Delete',
+        'edit_profile' => 'Edit Profile'
 ];

@@ -16,6 +16,9 @@ Route::get('/contact', 'StaticPagesController@contact');
 
 Auth::routes(['verify' => true]);
 
+Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 /**

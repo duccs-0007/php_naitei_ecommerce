@@ -31,6 +31,6 @@ return [
     'another_vetify'    => 'click here to request another',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'logged_in' =>  'You are logged in!',
-    'forgot_password' => 'Forgot Your Password?'
+    'forgot_password' => 'Forgot Your Password?',
 
 ];
