@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', trans('content.home'))
+@section('title', trans('header.home'))
 
 @section('content')
     <!-- start banner Area -->

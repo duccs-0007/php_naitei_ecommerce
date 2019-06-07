@@ -22,7 +22,7 @@ mix.styles([
     'public/css/ion.rangeSlider.css',
     'public/css/ion.rangeSlider.skinFlat.css',
     'public/css/magnific-popup.css',
-    'public/css/main.css',
+    'public/css/main.css'
 ], 'public/css/app.css');
 
 mix.scripts([
