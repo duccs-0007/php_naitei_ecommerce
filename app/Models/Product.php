@@ -1,13 +1,17 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $fillable = [
+    protected $guarded = [
         'id'
+    ];
+
+    protected $casts = [
+        'images' => 'array'
     ];
 
     public function users()
@@ -15,7 +19,7 @@ class Product extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }

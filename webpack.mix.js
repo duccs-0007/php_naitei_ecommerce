@@ -13,17 +13,27 @@ const mix = require('laravel-mix');
 
 mix.styles([
     'public/css/linearicons.css',
-    'public/css/font-awesome.min.css',
     'public/css/themify-icons.css',
-    'public/css/bootstrap.css',
     'public/css/owl.carousel.css',
     'public/css/nice-select.css',
-    'public/css/nouislider.min.css',
     'public/css/ion.rangeSlider.css',
     'public/css/ion.rangeSlider.skinFlat.css',
     'public/css/magnific-popup.css',
-    'public/css/main.css'
 ], 'public/css/app.css');
+
+mix.styles([
+    'public/css/font-awesome.min.css',
+    'public/css/nouislider.min.css',
+], 'public/css/app.min.css');
+
+mix.styles([
+    'public/css/bootstrap.css',
+], 'public/css/bootstrap.css',);
+
+mix.styles([
+    'public/css/main.css'
+], 'public/css/main.css');
+
 
 mix.scripts([
     'public/js/vendor/jquery-2.2.4.min.js',

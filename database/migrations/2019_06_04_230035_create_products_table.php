@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->float('price', 8, 2);
-            $table->binary('image');
+            $table->json('images');
             $table->float('avgPoint', 8, 2);
             $table->integer('quantity');
             $table->timestamps();
