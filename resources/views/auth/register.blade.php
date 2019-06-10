@@ -9,7 +9,7 @@
                     <h1>@lang('auth.register')</h1>
                     <nav class="d-flex align-items-center">
                         <a href="index.html">@lang('header.home')<span class="lnr lnr-arrow-right"></span></a>
-                        <a href="category.html">@lang('auth.register')</a>
+                        <a href="category.html">@lang('content.register_now')</a>
                     </nav>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                                 'id' => 'name', 
                                 'placeholder' => trans('auth.name'), 
                                 'class' => 'form-control', 
-                                'required' => 'required', 
+                                'required' => 'true', 
                                 'autocomplete' => 'name', 
                                 'autofocus' => 'autofocus'
                             ]) !!}
@@ -43,7 +43,7 @@
                             {!! Form::email('email', old('email'), [
                                 'id' => 'email', 
                                 'placeholder' => trans('auth.email'), 
-                                'required' => 'required', 
+                                'required' => 'true', 
                                 'autocomplete' => 'email', 
                                 'class' => 'form-control'
                             ]) !!}
@@ -53,7 +53,7 @@
                             {!! Form::password('password', [
                                 'id' => 'password', 
                                 'placeholder' => trans('auth.password'), 
-                                'required' => 'required', 
+                                'required' => 'true', 
                                 'autocomplete' => 'current-password', 
                                 'class' => 'form-control'
                             ]) !!}

@@ -6,6 +6,6 @@
         'pages' => 'Pages',
         'login' => 'Login',
         'tracking' => 'Tracking',
-        'logout' => 'Logout'
-
+        'logout' => 'Logout',
+        'profile' => 'Profile'
 ];
