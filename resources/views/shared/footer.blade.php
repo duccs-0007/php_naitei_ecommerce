@@ -23,7 +23,7 @@
                                     onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
                                     required="" type="email">
                                 <button class="click-btn btn btn-default">
-                                    <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                    <i class="fas fa-arrow-right"></i>
                                 </button>
                             </div>
                             <div class="info"></div>
@@ -35,14 +35,14 @@
                 <div class="single-footer-widget mail-chimp">
                     <h6 class="mb-20">@lang('footer.instagram')</h6>
                     <ul class="instafeed d-flex flex-wrap">
-                        <li><img src="img/i1.jpg" alt=""></li>
-                        <li><img src="img/i2.jpg" alt=""></li>
-                        <li><img src="img/i3.jpg" alt=""></li>
-                        <li><img src="img/i4.jpg" alt=""></li>
-                        <li><img src="img/i5.jpg" alt=""></li>
-                        <li><img src="img/i6.jpg" alt=""></li>
-                        <li><img src="img/i7.jpg" alt=""></li>
-                        <li><img src="img/i8.jpg" alt=""></li>
+                        <li><img src="{{ asset('img/i1.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i2.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i3.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i4.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i5.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i6.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i7.jpg') }}" alt=""></li>
+                        <li><img src="{{ asset('img/i8.jpg') }}" alt=""></li>
                     </ul>
                 </div>
             </div>
@@ -51,10 +51,10 @@
                     <h6>@lang('footer.follow')</h6>
                     <p>@lang('Let us be social')</p>
                     <div class="footer-social d-flex align-items-center">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-dribbble"></i></a>
-                        <a href="#"><i class="fa fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter-square"></i></a>
+                        <a href="#"><i class="fab fa-dribbble-square"></i></a>
+                        <a href="#"><i class="fab fa-behance-square"></i></a>
                     </div>
                 </div>
             </div>

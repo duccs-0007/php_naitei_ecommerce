@@ -17,3 +17,11 @@ Route::get('/contact', 'StaticPagesController@contact');
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/**
+ * Route for Product
+ */
+Route::resource('products', 'ProductsController', ['parameters' => [
+    'show' => 'slug',
+    'edit' => 'slug',
+]]);
