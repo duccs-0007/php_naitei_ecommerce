@@ -104,4 +104,107 @@
         </div>
     </section>
     <!-- end features Area -->
+    
+    <!-- start product Area -->
+	<section class="owl-carousel active-product-area section_gap">
+        <!-- single product slide -->
+        <div class="single-product-slider">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <div class="section-title">
+                            <h1>@lang('Hot Products')</h1>
+                            <p>@lang('Our hot products')</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    @foreach ($hot_products as $hot_product)
+                        <!-- single product -->
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-product">
+                                <img class="img-fluid" src="img/product/p1.jpg" alt="">
+                                <div class="product-details">
+                                    <h6>{{ $hot_product->name }}</h6>
+                                    <div class="price">
+                                        <h6>${{ $hot_product->price }}</h6>
+                                        <h6 class="l-through">${{ $hot_product->price * config('setting.sale') }}</h6>
+                                    </div>
+                                    <div class="prd-bottom">
+
+                                        <a href="" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">@lang('Add to cart')</p>
+                                        </a>
+                                        <a href="" class="social-info">
+                                            <span class="lnr lnr-heart"></span>
+                                            <p class="hover-text">@lang('Wishlist')</p>
+                                        </a>
+                                        <a href="" class="social-info">
+                                            <span class="lnr lnr-sync"></span>
+                                            <p class="hover-text">@lang('Compare')</p>
+                                        </a>
+                                        <a href="{{ route('products.show', ['slug' => $hot_product->slug]) }}" class="social-info">
+                                            <span class="lnr lnr-move"></span>
+                                            <p class="hover-text">@lang('View More')</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+        <!-- single product slide -->
+        <div class="single-product-slider">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <div class="section-title">
+                            <h1>@lang('Newest Products')</h1>
+                            <p>@lang('Our Newest Products')</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- single product -->
+                    @foreach ($newest_products as $newest_product)
+                        <div class="col-lg-3 col-md-6">
+                            <div class="single-product">
+                                <img class="img-fluid" src="img/product/p6.jpg" alt="">
+                                <div class="product-details">
+                                    <h6>{{ $newest_product->name }}</h6>
+                                    <div class="price">
+                                        <h6>${{ $newest_product->price }}</h6>
+                                        <h6 class="l-through">${{ $newest_product->price * config('setting.sale') }}</h6>
+                                    </div>
+                                    <div class="prd-bottom">
+    
+                                        <a href="" class="social-info">
+                                            <span class="ti-bag"></span>
+                                            <p class="hover-text">@lang('Add to cart')</p>
+                                        </a>
+                                        <a href="" class="social-info">
+                                            <span class="lnr lnr-heart"></span>
+                                            <p class="hover-text">@lang('Wishlist')</p>
+                                        </a>
+                                        <a href="" class="social-info">
+                                            <span class="lnr lnr-sync"></span>
+                                            <p class="hover-text">@lang('Compare')</p>
+                                        </a>
+                                        <a href="{{ route('products.show', ['slug' => $newest_product->slug]) }}" class="social-info">
+                                            <span class="lnr lnr-move"></span>
+                                            <p class="hover-text">@lang('View More')</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end product Area -->
 @endsection

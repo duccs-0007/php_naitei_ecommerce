@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', trans('content.contact'))
+@section('title', trans('header.contact'))
 
 @section('content')
     <!-- Start Banner Area -->

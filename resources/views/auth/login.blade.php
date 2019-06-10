@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', trans('header.login'))
+
 @section('content')
     <!-- Start Banner Area -->
     <section class="banner-area organic-breadcrumb">
