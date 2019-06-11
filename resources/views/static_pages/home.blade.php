@@ -106,6 +106,7 @@
     <!-- end features Area -->
     
     <!-- start product Area -->
+    <input type="hidden" class="quantity" value="{{ config('setting.one_value') }}">
 	<section class="owl-carousel active-product-area section_gap">
         <!-- single product slide -->
         <div class="single-product-slider">
@@ -131,8 +132,7 @@
                                         <h6 class="l-through">${{ $hot_product->price * config('setting.sale') }}</h6>
                                     </div>
                                     <div class="prd-bottom">
-
-                                        <a href="" class="social-info">
+                                        <a class="add_to_cart social-info" id="{{ $hot_product->id }}">
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">@lang('Add to cart')</p>
                                         </a>
@@ -180,8 +180,7 @@
                                         <h6 class="l-through">${{ $newest_product->price * config('setting.sale') }}</h6>
                                     </div>
                                     <div class="prd-bottom">
-    
-                                        <a href="" class="social-info">
+                                            <a class="add_to_cart social-info" id="{{ $newest_product->id }}">
                                             <span class="ti-bag"></span>
                                             <p class="hover-text">@lang('Add to cart')</p>
                                         </a>

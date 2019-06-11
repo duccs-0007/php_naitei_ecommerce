@@ -38,7 +38,12 @@
                         <li class="nav-item"><a class="nav-link" href="/contact">@lang('header.contact')</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="#" class="cart"><span class="ti-bag"></span></a></li>
+                        <li class="nav-item">
+                            <a href="{{ route('cartIndex') }}" class="cart">
+                                <span class="ti-bag"></span>
+                                <p class="nav-link" id="totalQuantity">{{ Session::has('cart')?Session::get('cart')->totalQuantity:'' }}</p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <button class="search"><span class="lnr lnr-magnifier" id="search"></span></button>
                         </li>
@@ -46,6 +51,16 @@
                 </div>
             </div>
         </nav>
+            <nav class="navbar navbar-expand-lg navbar-light main_box alert alert-warning" role="alert">
+                <div class="container" id="error_msg"></div>
+            </nav>
+        @if (session('status'))
+            <nav class="navbar navbar-expand-lg navbar-light main_box alert alert-warning" role="alert">
+                <div class="container" id="error_msg">
+                    {{ session('status') }}
+                </div>
+            </nav>
+        @endif
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container">

@@ -7,5 +7,6 @@
         'login' => 'Login',
         'tracking' => 'Tracking',
         'logout' => 'Logout',
-        'profile' => 'Profile'
+        'profile' => 'Profile',
+        'cart' => 'Cart',
 ];
