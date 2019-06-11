@@ -168,6 +168,11 @@ return [
         Collective\Html\HtmlServiceProvider::class,
 
         /*
+         * Yajra Datatables Providers
+         */
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
+        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -228,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Datatables' => yajra\Datatables\Datatables::class,
     ],
 
 ];

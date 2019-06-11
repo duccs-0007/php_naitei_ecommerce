@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="{{ mix('css/app.min.css') }}">
 	<link rel="stylesheet" href="{{ mix('css/bootstrap.css') }}">
 	<link rel="stylesheet" href="{{ mix('css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
     <title>@yield('title') @lang(' | PHP Naitei Ecommerce')</title>
 </head>
@@ -27,5 +28,7 @@
 	<script language="JavaScript" type="text/javascript" src="{{ asset('js/app.min.js') }}"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="https://kit.fontawesome.com/051b553a10.js"></script>
+	<!-- DataTables -->
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 </body>
 </html>

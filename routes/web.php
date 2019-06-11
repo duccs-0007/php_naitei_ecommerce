@@ -16,7 +16,7 @@ Route::get('/contact', 'StaticPagesController@contact');
 
 Auth::routes(['verify' => true]);
 
-Route::get('users/{user}',  ['as' => 'users.edit', 'uses' => 'UserController@edit']);
+Route::get('users/{user}',  ['as' => 'users.show', 'uses' => 'UserController@show']);
 Route::patch('users/{user}/update',  ['as' => 'users.update', 'uses' => 'UserController@update']);
 
 Route::group([
@@ -24,14 +24,29 @@ Route::group([
     'namespace' => 'Admin',
     'middleware' => 'auth',
     ], function(){
-        Route::get('users', 'UsersController@index')
-            ->middleware('can:users.resource', 'can:users.index');
-        Route::get('users/create', 'UsersController@')
-            ->middleware('can:users.resouces');
-        Route::get('users/edit', 'UsersController@edit')
-            ->middleware('can:users.resouces', 'can:users.edit');
-        }
-    );
+        Route::group([
+            'prefix' => 'users'
+        ], function(){
+            Route::get('/', 'UsersController@view')
+                ->middleware('can:users.view');
+            Route::get('getdata', 'UsersController@getdata')->name('datatables.getdata');
+            Route::get('/create', 'UsersController@create')
+                ->name('users.create')
+                ->middleware('can:users.create');
+            Route::post('/create', 'UsersController@store')
+                ->name('users.create')
+                ->middleware('can:users.create');
+            Route::get('/edit/{users}', 'UsersController@edit')
+                ->name('edit_users')
+                ->middleware('can:users.update');
+            Route::post('/edit/{users}', 'UsersController@update')
+                ->name('edit_users')
+                ->middleware('can:users.update');
+            Route::get('/delete', 'UsersController@delete')
+                ->name('delete_users')
+                ->middleware('can:users.delete');
+        });
+    });
 
 Route::get('/home', 'HomeController@index')->name('home');
 

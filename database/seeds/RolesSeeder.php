@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Role;
 
 class RolesSeeder extends Seeder
 {
@@ -23,18 +24,13 @@ class RolesSeeder extends Seeder
             'slug' => 'manager',
             'permissions' => [
                 'users.index' => true,
-                'users.show' => true,
                 'users.edit' => true,
-                'users.update' => true,
             ]
         ]);
         $customer = Role::create([
             'name' => 'Customer', 
             'slug' => 'customer',
             'permissions' => [
-                'users.show' => true,
-                'users.edit' => true,
-                'users.update' => true,
             ]
         ]);
     }

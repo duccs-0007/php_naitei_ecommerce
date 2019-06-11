@@ -24,7 +24,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
                                 aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</a>
                             <ul class="dropdown-menu">
-                                <li class="nav-item"><a class="nav-link" href="{{ route('users.edit', Auth::user()) }}">@lang('header.profile')<span class="caret"></span></a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('users.show', Auth::user()) }}">@lang('header.profile')<span class="caret"></span></a></li>
                                 <li class="nav-item"><a class="nav-link" href="#">@lang('header.tracking')</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#"  id="logout_btn_submit">
                                         {{ __('Logout') }}</a>
