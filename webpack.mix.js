@@ -19,6 +19,7 @@ mix.styles([
     'public/css/ion.rangeSlider.css',
     'public/css/ion.rangeSlider.skinFlat.css',
     'public/css/magnific-popup.css',
+    'public/css/custom.css',
 ], 'public/css/app.css');
 
 mix.styles([
@@ -47,5 +48,6 @@ mix.scripts([
     'public/js/gmaps.min.js',
     'public/js/jquery.sticky.js',
     'public/js/main.js',
-    'public/js/selfjs/users.js'
+    'public/js/selfjs/users.js',
+    'public/js/selfjs/cart.js',
 ], 'public/js/app.min.js');

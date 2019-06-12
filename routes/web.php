@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'StaticPagesController@home');
+Route::get('/', 'StaticPagesController@home')->name('root');
 Route::get('/contact', 'StaticPagesController@contact');
 
 Auth::routes(['verify' => true]);
@@ -42,3 +42,9 @@ Route::resource('products', 'ProductsController', ['parameters' => [
     'show' => 'slug',
     'edit' => 'slug',
 ]]);
+
+/**
+ * Route for Cart
+ */
+Route::post('/add-to-cart', 'CartsController@addToCart')->name('addToCart');
+Route::get('/carts', 'CartsController@index')->name('cartIndex');

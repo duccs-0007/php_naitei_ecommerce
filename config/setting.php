@@ -5,5 +5,7 @@
         'limit' => '8',
         'sale' => '1.2',
         'avgPoint' => '4',
-        'current_email' => 2
+        'zero_value' => '0',
+        'one_value' => '1',
+    
 ];
