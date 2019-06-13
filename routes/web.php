@@ -61,5 +61,9 @@ Route::resource('products', 'ProductsController', ['parameters' => [
 /**
  * Route for Cart
  */
-Route::post('/add-to-cart', 'CartsController@addToCart')->name('addToCart');
-Route::get('/carts', 'CartsController@index')->name('cartIndex');
+Route::resource('cart','CartsController')->only([
+    'store',
+    'index',
+    'update',
+    'destroy'
+]);

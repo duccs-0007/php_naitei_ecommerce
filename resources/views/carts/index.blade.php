@@ -11,7 +11,7 @@
                     <h1>@lang('content.shopping_cart')</h1>
                     <nav class="d-flex align-items-center">
                         <a href="{{ route('root') }}">@lang('header.home')<span class="lnr lnr-arrow-right"></span></a>
-                        <a href="{{ route('cartIndex') }}">@lang('header.cart')</a>
+                        <a href="{{ route('cart.index') }}">@lang('header.cart')</a>
                     </nav>
                 </div>
             </div>
@@ -31,6 +31,7 @@
                                     <th scope="col">@lang('content.price')</th>
                                     <th scope="col">@lang('content.quantity')</th>
                                     <th scope="col">@lang('content.total')</th>
+                                    <th scope="col">@lang('content.action')</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,20 +50,27 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <h5>${{ $product['price'] }}</h5>
+                                            <h5>${{ $product['item']['price'] }}</h5>
                                         </td>
                                         <td>
                                             <div class="product_count">
-                                                <input type="text" name="qty" id="sst" maxlength="12" value="{{ $product['quantity'] }}" title="{{ trans('content.quantity:') }}"
-                                                    class="input-text qty">
-                                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
-                                                    class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
-                                                <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
-                                                    class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                                <input type="text" id="{{ $product['item']['id'] }}" maxlength="12" value="{{ $product['quantity'] }}" title="{{ trans('content.quantity:') }}" 
+                                                    min="1" max="{{ $product['quantity'] }}" class="input-text{{ $product['item']['id'] }}">
+                                                <button class="increase items-count" id="{{ $product['item']['id'] }}" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                                <button class="reduced items-count" id="{{ $product['item']['id'] }}" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                             </div>
                                         </td>
                                         <td>
-                                            <h5>${{ $product['price'] * $product['quantity'] }}</h5>
+                                            <h5 class="price{{ $product['item']['id']}}">${{ $product['price'] }}</h5>
+                                        </td>
+                                        <td>
+                                            <a class="update_quantity" id="{{ $product['item']['id'] }}">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            &nbsp;
+                                            <a class="delete_quantity" id="{{ $product['item']['id'] }}">
+                                                <i class="fas fa-times"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -70,6 +78,7 @@
                                     <td>
                                         <a class="gray_btn" href="#">@lang('content.update_cart')</a>
                                     </td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td>
@@ -80,6 +89,7 @@
                                             <a class="primary-btn" href="#">@lang('content.cancel') <i class="fas fa-times"></i></a>
                                         </div>
                                     </td>
+                                    
                                 </tr>
                                 <tr>
                                     <td></td>
@@ -88,10 +98,12 @@
                                         <h5>@lang('content.subtotal')</h5>
                                     </td>
                                     <td>
-                                        <h5>${{ $totalPrice }}</h5>
+                                        <h5 class="subtotal">${{ $totalPrice }}</h5>
                                     </td>
+                                    <td></td>
                                 </tr>
                                 <tr class="shipping_area">
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td>
@@ -125,6 +137,7 @@
                                     <td></td>
                                     <td></td>
                                     <td></td>
+                                    <td></td>
                                     <td>
                                         <div class="checkout_btn_inner d-flex align-items-center">
                                             <a class="primary-btn" href="{{ route('root') }}"><i class="fas fa-chevron-left"></i> @lang('content.continue_shopping')</a>
@@ -132,6 +145,7 @@
                                             <a class="primary-btn" href="#">@lang('content.go_to_checkout') <i class="fas fa-cash-register"></i></a>
                                         </div>
                                     </td>
+                                    <td></td>
                                 </tr>
                             </tbody>
                         </table>

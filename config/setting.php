@@ -7,5 +7,6 @@
         'avgPoint' => '4',
         'zero_value' => '0',
         'one_value' => '1',
+        'two_value' => '2',
     
 ];

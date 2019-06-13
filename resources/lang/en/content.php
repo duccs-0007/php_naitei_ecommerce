@@ -35,5 +35,8 @@
         'go_to_checkout' => 'Go To Checkout',
         'no_item_in_cart' => 'There is no product in Cart!',
         'calculate_shipping' => 'Calculate Shipping',
-        'action' => 'Action'
+        'action' => 'Action',
+        'product_not_found' => 'Product not found!',
+        'product_updated' => 'Cart has been updated!',
+        'not_enough_in_stock' => 'Not enough quantity in stock!'
 ];
