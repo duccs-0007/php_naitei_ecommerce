@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Enums\OrderStatus;
 
 class CreateOrdersTable extends Migration
 {
@@ -19,7 +20,9 @@ class CreateOrdersTable extends Migration
             $table->string('slug')->unique();
             $table->float('order_total', 10, 2);
             $table->text('note');
-            $table->boolean('accepted')->default(false);
+            $table->date('startday');
+            $table->date('dueday');
+            $table->tinyInteger('status')->unsigned()->default(OrderStatus::Pending);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

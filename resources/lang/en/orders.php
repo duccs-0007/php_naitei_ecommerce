@@ -5,6 +5,8 @@
         'address' => 'Address',
         'order_total' => 'Total Price',
         'user_name' => 'User Name',
+        'pending' => 'Pending',
         'accepted' => 'Accepted',
-        'rejected' => 'Rejected'
+        'rejected' => 'Rejected',
+        'handled' => 'Handle completed'
 ];

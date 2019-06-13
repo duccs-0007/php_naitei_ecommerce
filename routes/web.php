@@ -54,7 +54,7 @@ Route::group([
             Route::get('/getdata', 'OrdersController@getdata');
             Route::get('/show/{order}', 'OrdersController@show')
                 ->middleware('can:orders.view');
-            Route::post('/handleorder', 'OrdersController@handleOrder')
+            Route::post('/handle', 'OrdersController@handle')
                 ->name('edit_users')
                 ->middleware('can:orders.update');
         });
