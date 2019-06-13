@@ -29,7 +29,7 @@ Route::group([
         ], function(){
             Route::get('/', 'UsersController@view')
                 ->middleware('can:users.view');
-            Route::get('getdata', 'UsersController@getdata')->name('datatables.getdata');
+            Route::get('/getdata', 'UsersController@getdata');
             Route::get('/create', 'UsersController@create')
                 ->name('users.create')
                 ->middleware('can:users.create');
@@ -45,6 +45,18 @@ Route::group([
             Route::get('/delete', 'UsersController@delete')
                 ->name('delete_users')
                 ->middleware('can:users.delete');
+        });
+        Route::group([
+            'prefix' => 'orders'
+        ], function(){
+            Route::get('/', 'OrdersController@index')
+                ->middleware('can:orders.view');
+            Route::get('/getdata', 'OrdersController@getdata');
+            Route::get('/show/{order}', 'OrdersController@show')
+                ->middleware('can:orders.view');
+            Route::post('/handleorder', 'OrdersController@handleOrder')
+                ->name('edit_users')
+                ->middleware('can:orders.update');
         });
     });
 
