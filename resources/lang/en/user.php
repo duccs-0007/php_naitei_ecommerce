@@ -12,5 +12,7 @@
         'id' => 'ID',
         'name' => 'Name',
         'email' => 'Email',
-        'joined_at' => 'Joined at'
+        'joined_at' => 'Joined at',
+        'deleted' => 'Deleted User',
+        'user_manage' => 'Users Manage'
 ];

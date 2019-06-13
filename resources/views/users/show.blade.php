@@ -96,7 +96,6 @@
                             <a href="#"><i class="fa fa-github"></i></a>
                             <a href="#"><i class="fa fa-behance"></i></a>
                         </div>
-                        <span>{!! $user->desc !!}</span>
                         <div class="br"></div>
                     </aside>
                 </div>

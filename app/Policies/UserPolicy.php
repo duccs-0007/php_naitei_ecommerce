@@ -16,14 +16,9 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function view(User $user, User $model)
+    public function view(User $user)
     {
-        //
-    }
-
-    public function index(User $user)
-    {
-        return $user->hasAccess(['admin.users']);
+        return $user->hasAccess(['users.resource']) or $user->hasAccess(['users.index']);
     }
 
     /**
@@ -34,7 +29,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        return $user->hasAccess(['admin.users.create']);
+        return $user->hasAccess(['users.resource']);
     }
 
     /**
@@ -46,7 +41,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return $user->hasAccess(['admin.users.update']) or $user->id == $model->user_id;
+        return $user->hasAccess(['users.resource']) or $user->hasAccess(['users.edit']);
     }
 
     /**
@@ -56,9 +51,9 @@ class UserPolicy
      * @param  \App\User  $model
      * @return mixed
      */
-    public function delete(User $user, User $model)
+    public function delete(User $user)
     {
-        return $user->has(['admin.users.delete']);
+        return $user->hasAccess(['users.resource']);
     }
 
     /**

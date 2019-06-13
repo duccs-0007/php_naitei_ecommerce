@@ -13,7 +13,6 @@ class UserController extends Controller
     {
         $this->middleware('auth');
     }
-
     /**
      * Display the specified resource.
      *
@@ -24,12 +23,6 @@ class UserController extends Controller
     {
         $user = Auth::user();
         return view('users.show', compact('user'));
-    }
-
-    public function edit(User $user)
-    {
-        $user = Auth::user();
-        return view('users.edit', compact('user'));
     }
 
     public function update(UserUpdateRequest $request, User $user)

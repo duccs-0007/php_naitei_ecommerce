@@ -35,4 +35,5 @@
         'go_to_checkout' => 'Go To Checkout',
         'no_item_in_cart' => 'There is no product in Cart!',
         'calculate_shipping' => 'Calculate Shipping',
+        'action' => 'Action'
 ];
