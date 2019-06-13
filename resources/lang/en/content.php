@@ -33,10 +33,13 @@
         'update_details' => 'Update Details',
         'continue_shopping' => 'Continue Shopping',
         'go_to_checkout' => 'Go To Checkout',
-        'no_item_in_cart' => 'There is no product in Cart!',
+        'no_item_in_cart' => 'There is no product in your Cart!',
         'calculate_shipping' => 'Calculate Shipping',
         'action' => 'Action',
         'product_not_found' => 'Product not found!',
         'product_updated' => 'Cart has been updated!',
-        'not_enough_in_stock' => 'Not enough quantity in stock!'
+        'not_enough_in_stock' => 'Not enough quantity in stock!',
+        'added_to_cart' => 'Product has been added to your Cart!',
+        'item_deleted' => 'One item has been deleted from your Cart!',
+        'continue_shopping' => 'Continue Shopping'
 ];

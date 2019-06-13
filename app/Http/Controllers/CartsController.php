@@ -19,7 +19,7 @@ class CartsController extends Controller
             $quantity = $request->quantity;
             $image = $product->images[config('setting.zero_value')];
             
-            $oldCart = Session::has('cart')?Session::get('cart'):null;
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
             $cart->add($product, $product->id, $quantity);
 
@@ -30,7 +30,8 @@ class CartsController extends Controller
                 'totalQuantity' => $cart->totalQuantity,
                 'totalPrice' => $cart->totalPrice,
                 'product' => $product,
-                'image' => $product->images[config('setting.zero_value')]
+                'image' => $product->images[config('setting.zero_value')],
+                'message' => trans('content.added_to_cart'),
             ]);
         }
         catch (\Exception $e)
@@ -41,11 +42,6 @@ class CartsController extends Controller
 
     public function index()
     {
-        if (!Session::has('cart'))
-        {
-            return redirect()->route('root')->with('status', trans('content.no_item_in_cart'));
-        }
-
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
@@ -73,14 +69,15 @@ class CartsController extends Controller
             else
             {
                 $old_quantity = $cart->items[$id]['quantity'];
-
                 $cart->items[$id]['quantity'] = $new_quantity;
-
                 $cart->items[$id]['price'] = round($cart->items[$id]['quantity'] * $cart->items[$id]['item']['price'],config('setting.two_value'));
+                $cart->totalQuantity = $cart->totalQuantity + $cart->items[$id]['quantity'] - $old_quantity;
                 $cart->totalPrice = round($cart->totalPrice + ($cart->items[$id]['quantity'] - $old_quantity) * $cart->items[$id]['item']['price'],config('setting.two_value'));
+                $request->session()->put('cart', $cart);
 
                 return response()->json([
                     'new_price' => $cart->items[$id]['price'],
+                    'totalQuantity' => $cart->totalQuantity,
                     'subtotal' => $cart->totalPrice,
                     'message' => trans('content.product_updated'),
                     'new_quantity' => $cart->items[$id]['quantity']
@@ -92,5 +89,34 @@ class CartsController extends Controller
 
         }
         
+    }
+
+    public function destroy(Request $request)
+    {
+        $id = $request->id;
+        $product = Product::findOrFail($id);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $cart->remove($id);
+
+        if (count($cart->items) > config('setting.zero_value'))
+        {
+            Session::put('cart', $cart);
+
+            return response()->json([
+                'totalQuantity' => $cart->totalQuantity,
+                'totalPrice' => $cart->totalPrice,
+                'message' => trans('content.item_deleted'),
+            ]);
+        }
+        else 
+        {
+            Session::forget('cart', $cart);
+            return response()->json([
+                'totalQuantity' => null,
+                'totalPrice' => null,
+                'message' => trans('content.no_item_in_cart'),
+            ]);
+        }
     }
 }

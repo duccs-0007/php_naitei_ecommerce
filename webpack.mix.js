@@ -19,7 +19,7 @@ mix.styles([
     'public/css/ion.rangeSlider.css',
     'public/css/ion.rangeSlider.skinFlat.css',
     'public/css/magnific-popup.css',
-    'public/css/custom.css',
+    'public/css/custom/custom.css',
 ], 'public/css/app.css');
 
 mix.styles([

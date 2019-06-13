@@ -1,0 +1,29 @@
+.resize_image {
+    width: 152px;
+    height: 102px;
+}
+
+.alert_font {
+    font-size: 18px;
+    text-align: center;
+}
+
+.go_back {
+    margin: 0 auto;
+}
+
+.cart_edit {
+    color: rgb(255, 157, 0)
+}
+
+.cart_edit :visited :hover :active{
+    color: rgb(223, 149, 30)
+}
+
+.cart_delete {
+    color: rgb(230, 82, 14)
+}
+
+.cart_delete :visited :hover :active{
+    color: rgb(185, 87, 42)
+}
