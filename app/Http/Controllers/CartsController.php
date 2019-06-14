@@ -10,7 +10,7 @@ use Session;
 
 class CartsController extends Controller
 {    
-    public function addToCart(Request $request) 
+    public function store(Request $request) 
     {
         try
         {
@@ -50,5 +50,47 @@ class CartsController extends Controller
         $cart = new Cart($oldCart);
 
         return view('carts.index', ['products' => $cart->items, 'totalPrice' => $cart->totalPrice]);
+    }
+
+    public function update(Request $request)
+    {
+        try
+        {
+            $id = $request->id;
+            $product = Product::findOrFail($id);
+            $new_quantity = $request->quantity;
+            $cart = Session::get('cart');
+            
+            if ($product->quantity - $new_quantity < config('setting.zero_value'))
+            {
+                return response()->json([
+                    'message' => trans('content.not_enough_in_stock'),
+                    'new_price' => $cart->items[$id]['price'],
+                    'subtotal' => $cart->totalPrice,
+                    'new_quantity' => $cart->items[$id]['quantity']
+                ]);
+            }
+            else
+            {
+                $old_quantity = $cart->items[$id]['quantity'];
+
+                $cart->items[$id]['quantity'] = $new_quantity;
+
+                $cart->items[$id]['price'] = round($cart->items[$id]['quantity'] * $cart->items[$id]['item']['price'],config('setting.two_value'));
+                $cart->totalPrice = round($cart->totalPrice + ($cart->items[$id]['quantity'] - $old_quantity) * $cart->items[$id]['item']['price'],config('setting.two_value'));
+
+                return response()->json([
+                    'new_price' => $cart->items[$id]['price'],
+                    'subtotal' => $cart->totalPrice,
+                    'message' => trans('content.product_updated'),
+                    'new_quantity' => $cart->items[$id]['quantity']
+                ]);
+            }
+        }
+        catch(\Exception $e)
+        {
+
+        }
+        
     }
 }

@@ -39,7 +39,7 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="nav-item">
-                            <a href="{{ route('cartIndex') }}" class="cart">
+                            <a href="{{ route('cart.index') }}" class="cart">
                                 <span class="ti-bag"></span>
                                 <p class="nav-link" id="totalQuantity">{{ Session::has('cart')?Session::get('cart')->totalQuantity:'' }}</p>
                             </a>
