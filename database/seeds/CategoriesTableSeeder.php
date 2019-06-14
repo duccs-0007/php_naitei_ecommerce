@@ -15,15 +15,12 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'name' => 'Shoes',
-                'product_id' => 1
             ],
             [
                 'name' => 'Foods',
-                'product_id' => 2
             ],
             [
                 'name' => 'Hats',
-                'product_id' => 3
             ]
         ]);
     }

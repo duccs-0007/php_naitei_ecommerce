@@ -17,7 +17,6 @@ class CreateCategoriesTable extends Migration
             $table->increments('id');
             $table->integer('parent')->unsigned()->nullable();
             $table->string('name');
-            $table->unsignedBigInteger('product_id');
 
             $table->foreign('parent')
                 ->references('id')

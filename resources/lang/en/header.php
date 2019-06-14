@@ -9,4 +9,5 @@
         'logout' => 'Logout',
         'profile' => 'Profile',
         'cart' => 'Cart',
+        'admin' => 'Admin'
 ];

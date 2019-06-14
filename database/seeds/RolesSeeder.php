@@ -17,6 +17,7 @@ class RolesSeeder extends Seeder
             'slug' => 'admin',
             'permissions' => [
                 'users.resource' => true,
+                'orders.resource' => true,
             ]
         ]);
         $manager = Role::create([
@@ -25,6 +26,7 @@ class RolesSeeder extends Seeder
             'permissions' => [
                 'users.index' => true,
                 'users.edit' => true,
+                'orders.resource' => true,
             ]
         ]);
         $customer = Role::create([

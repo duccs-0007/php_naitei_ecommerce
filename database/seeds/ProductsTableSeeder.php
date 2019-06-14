@@ -11,7 +11,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i < 10; $i++){
+        for ($i = 1; $i <= 10; $i++){
             DB::table('products')->insert([
                 'name' => 'Shoe '.$i,
                 'description' => 'Shoe '.$i.' Description',
@@ -24,7 +24,7 @@ class ProductsTableSeeder extends Seeder
             ]);
         }
 
-        for ($i = 11; $i < 20; $i++){
+        for ($i = 11; $i <= 20; $i++){
             DB::table('products')->insert([
                 'name' => 'Organic Food '.$i,
                 'description' => 'Organic Food '.$i.' Description',
