@@ -20,7 +20,7 @@
     <!-- End Banner Area -->
     <!--================Cart Area =================-->
     @if (Session::has('cart'))
-    <section class="cart_area">
+    <section class="cart_area current_cart">
             <div class="container">
                 <div class="cart_inner">
                     <div class="table-responsive">
@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($products as $product)
-                                    <tr>
+                                    <tr class="cart_item{{ $product['item']['id'] }}">
                                         <td>
                                             <div class="media">
                                                 <div class="d-flex">
@@ -54,7 +54,7 @@
                                         </td>
                                         <td>
                                             <div class="product_count">
-                                                <input type="text" id="{{ $product['item']['id'] }}" maxlength="12" value="{{ $product['quantity'] }}" title="{{ trans('content.quantity:') }}" 
+                                                <input type="text" id="{{ $product['item']['id'] }}" maxlength="12" value="{{ $product['quantity'] }}" title="{{ trans('content.quantity:') }}"
                                                     min="1" max="{{ $product['quantity'] }}" class="input-text{{ $product['item']['id'] }}">
                                                 <button class="increase items-count" id="{{ $product['item']['id'] }}" type="button"><i class="lnr lnr-chevron-up"></i></button>
                                                 <button class="reduced items-count" id="{{ $product['item']['id'] }}" type="button"><i class="lnr lnr-chevron-down"></i></button>
@@ -64,20 +64,20 @@
                                             <h5 class="price{{ $product['item']['id']}}">${{ $product['price'] }}</h5>
                                         </td>
                                         <td>
-                                            <a class="update_quantity" id="{{ $product['item']['id'] }}">
+                                            <div class="rows">
+                                            <a href="" class="cart_edit update_quantity" id="{{ $product['item']['id'] }}">
                                                 <i class="fas fa-pencil-alt"></i>
                                             </a>
                                             &nbsp;
-                                            <a class="delete_quantity" id="{{ $product['item']['id'] }}">
+                                            <a href="" class="cart_delete delete_item" id="{{ $product['item']['id'] }}">
                                                 <i class="fas fa-times"></i>
                                             </a>
+                                        </div>
                                         </td>
                                     </tr>
                                 @endforeach
                                 <tr class="bottom_button">
-                                    <td>
-                                        <a class="gray_btn" href="#">@lang('content.update_cart')</a>
-                                    </td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
@@ -154,11 +154,18 @@
             </div>
         </section>
     @else
-        <div class="row">
-            <div class="col-sm-6 col-md-6 col-md-offset-3 col-md-offset-3">
-                <h2>@lang('content.no_item_in_cart')</h2>
+        <section class="cart_area cart_empty">
+            <div class="container">
+                <div class="cart_inner">
+                    <div class="alert alert-danger alert_font" role="alert">
+                            @lang('content.no_item_in_cart')
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <a class="primary-btn go_back" href="{{ route('root') }}">@lang('content.continue_shopping') <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     @endif
     <!--================End Cart Area =================-->
 @endsection

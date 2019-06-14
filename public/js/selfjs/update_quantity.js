@@ -3,8 +3,9 @@ $('.increase').click(function(e){
     var id = $(this).attr('id');
     var ids = '.' + 'input-text' + id.toString();
     var result = document.getElementById(id.toString());
+    var max = parseInt(result.max);
     var sst = result.value;
-    if( !isNaN( sst ))
+    if( !isNaN( sst ) && sst < max)
     {
         result.value++;
     }
@@ -16,7 +17,7 @@ $('.reduced').click(function(e){
     var id = $(this).attr('id');
     var ids = '.' + 'input-text' + id.toString();
     var result = document.getElementById(id.toString());
-    sst = result.value;
+    var sst = result.value;
     if( !isNaN( sst ) && sst > 1 )
     {
         result.value--;
