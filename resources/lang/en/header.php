@@ -9,5 +9,6 @@
         'logout' => 'Logout',
         'profile' => 'Profile',
         'cart' => 'Cart',
-        'admin' => 'Admin'
+        'admin' => 'Admin',
+        'shop_page' => 'Shopping Page'
 ];

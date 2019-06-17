@@ -1,6 +1,6 @@
 .resize_image {
-    width: 152px;
-    height: 102px;
+    width: 255px !important;
+    height: 255px !important;
 }
 
 .alert_font {
@@ -26,4 +26,23 @@
 
 .cart_delete :visited :hover :active{
     color: rgb(185, 87, 42)
+}
+
+.shop_pagination {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+.products-list {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.no_product {
+    padding-top: 20px;
+}
+
+.resize_product_item {
+    width: 255px !important;
+    height: 255px !important;
 }
