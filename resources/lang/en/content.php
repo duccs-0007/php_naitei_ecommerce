@@ -43,5 +43,15 @@
         'item_deleted' => 'One item has been deleted from your Cart!',
         'continue_shopping' => 'Continue Shopping',
         'reject' => 'Reject',
-        'accept' => 'Accept'
+        'accept' => 'Accept',
+        'shopping' => 'Shopping',
+        'browse_category' => 'Browse Categories',
+        'product_filter' => 'Product Filters',
+        'brand' => 'Brands',
+        'no_product' => 'No product found!',
+        'price' => 'Price',
+        'price:' => 'Price:',
+        'to' => 'To',
+        'all_products' => 'All Products',
+
 ];

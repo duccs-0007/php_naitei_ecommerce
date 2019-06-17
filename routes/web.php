@@ -79,3 +79,8 @@ Route::resource('cart','CartsController')->only([
     'update',
     'destroy'
 ]);
+
+/**
+ * Route for shop page
+ */
+Route::get('/shop', 'ShopController@index')->name('shop');
