@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SearchRequest;
 use App\Models\Product;
 use App\Models\Category;
 
@@ -39,5 +40,15 @@ class ShopController extends Controller
         }
 
         return view('shop.index', compact('products', 'categories', 'count_product', 'category_title'));
+    }
+
+    public function search(SearchRequest $request)
+    {   
+        $query = $request->input('query');
+        $products = Product::search($query)->paginate(config('setting.per_page_shop_value'));
+        $count_product = Product::count();
+        $categories = Category::withCount('products')->get();
+
+        return view('search.results', compact('products', 'categories', 'count_product'));
     }
 }

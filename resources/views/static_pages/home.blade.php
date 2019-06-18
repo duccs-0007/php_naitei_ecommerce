@@ -124,7 +124,7 @@
                         <!-- single product -->
                         <div class="col-lg-3 col-md-6">
                             <div class="single-product">
-                                <img class="resize_image img-fluid" src="{{ asset($hot_product->images[config('setting.zero_value')]) }}" alt="">
+                                <img class="resize_product_item img-fluid" src="{{ asset($hot_product->images[config('setting.zero_value')]) }}" alt="">
                                 <div class="product-details">
                                     <h6>{{ $hot_product->name }}</h6>
                                     <div class="price">
@@ -172,7 +172,7 @@
                     @foreach ($newest_products as $newest_product)
                         <div class="col-lg-3 col-md-6">
                             <div class="single-product">
-                                <img class="resize_image img-fluid" src="{{ asset($newest_product->images[config('setting.zero_value')]) }}" alt="">
+                                <img class="resize_product_item img-fluid" src="{{ asset($newest_product->images[config('setting.zero_value')]) }}" alt="">
                                 <div class="product-details">
                                     <h6>{{ $newest_product->name }}</h6>
                                     <div class="price">

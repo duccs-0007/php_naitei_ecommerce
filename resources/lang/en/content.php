@@ -53,5 +53,8 @@
         'price:' => 'Price:',
         'to' => 'To',
         'all_products' => 'All Products',
+        'search_results' => 'Search Results',
+        'search' => 'Search',
+        'search_here' => 'Search Here',
 
 ];

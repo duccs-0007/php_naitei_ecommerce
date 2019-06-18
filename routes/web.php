@@ -84,3 +84,8 @@ Route::resource('cart','CartsController')->only([
  * Route for shop page
  */
 Route::get('/shop', 'ShopController@index')->name('shop');
+
+/**
+ * Route for search
+ */
+Route::get('/search', 'ShopController@search')->name('search');

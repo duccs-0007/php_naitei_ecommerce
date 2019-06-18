@@ -10,5 +10,7 @@
         'profile' => 'Profile',
         'cart' => 'Cart',
         'admin' => 'Admin',
-        'shop_page' => 'Shopping Page'
+        'shop_page' => 'Shopping Page',
+        'search_results' => 'Search Results',
+        
 ];
