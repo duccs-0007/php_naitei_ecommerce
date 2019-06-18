@@ -29,7 +29,7 @@ class OrderPolicy
      * @param  \App\Order  $order
      * @return mixed
      */
-    public function update(User $user, Order $order)
+    public function update(User $user)
     {
         return $user->hasAccess(['orders.resource']);
     }
@@ -44,29 +44,5 @@ class OrderPolicy
     public function delete(User $user, Order $order)
     {
         return $user->hasAccess(['orders.resource']);
-    }
-
-    /**
-     * Determine whether the user can restore the order.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Order  $order
-     * @return mixed
-     */
-    public function restore(User $user, Order $order)
-    {
-        return $user->hasAccess(['orders.resource']);
-    }
-
-    /**
-     * Determine whether the user can permanently delete the order.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Order  $order
-     * @return mixed
-     */
-    public function forceDelete(User $user, Order $order)
-    {
-        //
     }
 }

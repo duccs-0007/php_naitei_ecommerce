@@ -17,7 +17,7 @@ $(document).ready(function(){
     });
     $(document).on('click', '.delete', function(){
         var id = $(this).attr('id');
-        if(confirm("Are you sure you want to Delete this data?"))
+        if(confirm("Are you sure you want to Delete this user?"))
         {
             $.ajax({
                 url: "/admin/users/delete",
