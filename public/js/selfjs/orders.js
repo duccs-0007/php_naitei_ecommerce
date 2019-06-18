@@ -42,7 +42,7 @@ $(document).ready(function () {
                 method: 'POST',
                 data: {
                     id: id,
-                    handlestatus: 0,
+                    handlestatus: 2,
                     _token: token,
                 },
                 success: function (response) {

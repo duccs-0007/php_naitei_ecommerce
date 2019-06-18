@@ -9,6 +9,7 @@ use App\User;
 use App\Order;
 use Yajra\Datatables\Datatables;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderEmail;
 use App\Enums\OrderStatus;
 
 class OrdersController extends Controller
@@ -57,6 +58,7 @@ class OrdersController extends Controller
         $order->status = $request->get('handlestatus');
         $result = OrderStatus::getKey((int) $order->status);
         $order->save();
+        Mail::to($order->owner->email)->send(new OrderEmail($order));
         return response()->json([ 'alert' => trans('orders.handled').' : '.$result]);
     }
 }
