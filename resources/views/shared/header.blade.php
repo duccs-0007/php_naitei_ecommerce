@@ -41,7 +41,7 @@
                         <li class="nav-item">
                             <a href="{{ route('cart.index') }}" class="cart">
                                 <span class="ti-bag"></span>
-                                <p class="nav-link" id="totalQuantity">{{ Session::has('cart')?Session::get('cart')->totalQuantity:'' }}</p>
+                                <p class="nav-link" id="totalQuantity">{{ Session::has('cart') ? Session::get('cart')->totalQuantity : config('setting.zero_value') }}</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -54,14 +54,24 @@
         <nav class="navbar navbar-expand-lg navbar-light main_box alert alert-success alert_font" role="alert">
             <div class="container" id="error_msg"></div>
         </nav>
+        @if (count($errors) > 0)
+            <nav class="navbar navbar-expand-lg navbar-light main_box alert alert-danger alert_font" role="alert">
+                <div class="container">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </nav>
+        @endif
     </div>
     <div class="search_input" id="search_input_box">
         <div class="container">
-            <form class="d-flex justify-content-between">
-                <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                <button type="submit" class="btn"></button>
+            {!! Form::open(['route' => 'search', 'method' => 'GET', 'class' => 'd-flex justify-content-between']) !!}
+                {!! Form::text('query', request()->input('query'), ['class' => 'form-control', 'id' => 'query', 'placeholder' => trans('content.search_here')]) !!}
                 <span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-            </form>
+            {!! Form::close() !!}
         </div>
     </div>
 </header>
